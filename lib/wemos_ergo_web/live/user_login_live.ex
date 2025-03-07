@@ -16,8 +16,8 @@ defmodule WemosErgoWeb.UserLoginLive do
       </.header>
 
       <.simple_form for={@form} id="login_form" action={~p"/users/log_in"} phx-update="ignore">
-        <.input field={@form[:email]} type="email" label="Email" required />
-        <.input field={@form[:password]} type="password" label="Password" required />
+        <.input field={@form[:email]} type="email" label="Email" required class="!rounded-xl" />
+        <.input field={@form[:password]} type="password" label="Password" required class="!rounded-xl" />
 
         <:actions>
           <.input field={@form[:remember_me]} type="checkbox" label="Keep me logged in" />
@@ -26,7 +26,7 @@ defmodule WemosErgoWeb.UserLoginLive do
           </.link>
         </:actions>
         <:actions>
-          <.button phx-disable-with="Logging in..." class="w-full bg-brand hover:bg-brand/75 rounded-xl">
+          <.button phx-disable-with="Logging in..." class="w-full !bg-brand hover:!bg-brand/75 rounded-xl">
             Log in <span aria-hidden="true">→</span>
           </.button>
         </:actions>

@@ -35,7 +35,7 @@ defmodule WemosErgoWeb.UserRegistrationLive do
         <.input field={@form[:password]} type="password" label="Password" required class="rounded-xl" />
 
         <:actions>
-          <.button phx-disable-with="Creating account..." class="w-full bg-brand hover:bg-brand/75 rounded-xl">Create an account</.button>
+          <.button phx-disable-with="Creating account..." class="w-full !bg-brand hover:!bg-brand/75 rounded-xl">Create an account</.button>
         </:actions>
       </.simple_form>
     </div>

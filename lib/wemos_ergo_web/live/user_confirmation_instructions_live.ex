@@ -14,7 +14,7 @@ defmodule WemosErgoWeb.UserConfirmationInstructionsLive do
       <.simple_form for={@form} id="resend_confirmation_form" phx-submit="send_instructions">
         <.input field={@form[:email]} type="email" placeholder="Email" required />
         <:actions>
-          <.button phx-disable-with="Sending..." class="w-full bg-brand hover:bg-brand/75">
+          <.button phx-disable-with="Sending..." class="w-ful !bg-brand hover:!bg-brand/75">
             Resend confirmation instructions
           </.button>
         </:actions>

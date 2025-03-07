@@ -26,7 +26,7 @@ defmodule WemosErgoWeb.UserResetPasswordLive do
           required
         />
         <:actions>
-          <.button phx-disable-with="Resetting..." class="w-full bg-brand hover:bg-brand/75">Reset Password</.button>
+          <.button phx-disable-with="Resetting..." class="w-full !bg-brand hover:!bg-brand/75">Reset Password</.button>
         </:actions>
       </.simple_form>
 

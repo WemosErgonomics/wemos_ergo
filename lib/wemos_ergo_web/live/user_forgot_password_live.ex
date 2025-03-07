@@ -14,7 +14,7 @@ defmodule WemosErgoWeb.UserForgotPasswordLive do
       <.simple_form for={@form} id="reset_password_form" phx-submit="send_email">
         <.input field={@form[:email]} type="email" placeholder="Email" required />
         <:actions>
-          <.button phx-disable-with="Sending..." class="w-full bg-brand hover:bg-brand/75">
+          <.button phx-disable-with="Sending..." class="w-full !bg-brand hover:!bg-brand/75">
             Send password reset instructions
           </.button>
         </:actions>

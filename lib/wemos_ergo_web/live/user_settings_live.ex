@@ -29,7 +29,7 @@ defmodule WemosErgoWeb.UserSettingsLive do
             required
           />
           <:actions>
-            <.button phx-disable-with="Changing..." class="bg-brand hover:bg-brand/75 rounded-xl">Change Email</.button>
+            <.button phx-disable-with="Changing..." class="!bg-brand hover:!bg-brand/75 rounded-xl">Change Email</.button>
           </:actions>
         </.simple_form>
       </div>
@@ -65,7 +65,7 @@ defmodule WemosErgoWeb.UserSettingsLive do
             required
           />
           <:actions>
-            <.button phx-disable-with="Changing..." class="bg-brand hover:bg-brand/75 rounded-xl">Change Password</.button>
+            <.button phx-disable-with="Changing..." class="!bg-brand hover:!bg-brand/75 rounded-xl">Change Password</.button>
           </:actions>
         </.simple_form>
       </div>
