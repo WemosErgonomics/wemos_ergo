@@ -26,15 +26,11 @@ defmodule WemosErgoWeb.ProjectNewLive do
         action={~p"/projects/new?_action=creation"}
         method="post"
       >
-        <.error :if={@check_errors}>
-          Oops, something went wrong! Please check the errors below.
-        </.error>
-
         <.input
           field={@form[:name]}
           class="!rounded-xl tracking-wide font-inter"
           type="text"
-          label="Name"
+          label="Project name"
           placeholder="Your project name"
         />
         <.input
@@ -46,7 +42,10 @@ defmodule WemosErgoWeb.ProjectNewLive do
         />
 
         <:actions>
-          <.button class="flex items-center justify-center !bg-brand hover:!bg-brand/75 !rounded-xl w-full" phx-disable-with="Creating project...">
+          <.button
+            class="flex items-center justify-center !bg-brand hover:!bg-brand/75 !rounded-xl w-full"
+            phx-disable-with="Creating project..."
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -87,10 +86,18 @@ defmodule WemosErgoWeb.ProjectNewLive do
   def handle_event("create", %{"project" => project_params}, socket) do
     changeset = Accounts.change_project(%Project{}, project_params)
 
-    new_project = changeset |> Ecto.Changeset.put_assoc(:user, socket.assigns.current_user) |> Repo.insert
+    new_project =
+      changeset |> Ecto.Changeset.put_assoc(:user, socket.assigns.current_user) |> Repo.insert()
+
     case new_project do
-      {:ok, _} ->
-        {:noreply, socket |> assign(trigger_submit: true) |> assign_form(changeset)}
+      {:ok, inserted_project} ->
+        {:noreply,
+         socket
+         |> assign(trigger_submit: true)
+         |> assign_form(changeset)
+         |> put_flash(:info, "Created new project #{inserted_project.name}.")
+         |> push_navigate(to: ~p"/projects")}
+
       {:error, %Ecto.Changeset{} = err_changeset} ->
         {:noreply, socket |> assign(check_errors: true) |> assign_form(err_changeset)}
     end
