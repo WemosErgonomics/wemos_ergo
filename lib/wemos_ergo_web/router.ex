@@ -68,6 +68,9 @@ defmodule WemosErgoWeb.Router do
       on_mount: [{WemosErgoWeb.UserAuth, :ensure_authenticated}] do
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
+
+      live "/projects/", ProjectIndexLive, :index
+      live "/projects/new", ProjectNewLive
     end
   end
 

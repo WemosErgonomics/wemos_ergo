@@ -290,6 +290,7 @@ defmodule WemosErgoWeb.CoreComponents do
   attr :rest, :global,
     include: ~w(accept autocomplete capture cols disabled form list max maxlength min minlength
                 multiple pattern placeholder readonly required rows size step)
+
   attr :class, :string, default: nil
 
   def input(%{field: %Phoenix.HTML.FormField{} = field} = assigns) do
@@ -336,7 +337,10 @@ defmodule WemosErgoWeb.CoreComponents do
       <select
         id={@id}
         name={@name}
-        class="mt-2 block w-full rounded-md border border-gray-300 bg-white shadow-sm focus:border-zinc-400 focus:ring-0 sm:text-sm"
+        class={[
+          "mt-2 block w-full rounded-md border border-gray-300 bg-white shadow-sm focus:border-zinc-400 focus:ring-0 sm:text-sm",
+          @class
+        ]}
         multiple={@multiple}
         {@rest}
       >
