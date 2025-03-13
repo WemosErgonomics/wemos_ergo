@@ -10,6 +10,7 @@ defmodule WemosErgo.Accounts.Project do
   schema "projects" do
     field :name, :string
     field :type, :integer
+    field :last_opened_at, :utc_datetime
 
     belongs_to :user, WemosErgo.Accounts.User
 
