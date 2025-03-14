@@ -58,7 +58,7 @@ config :wemos_ergo, WemosErgoWeb.Endpoint,
     patterns: [
       ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/wemos_ergo_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"lib/*/.*(ex|heex)$"
     ]
   ]
 

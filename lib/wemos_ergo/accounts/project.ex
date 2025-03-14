@@ -3,7 +3,7 @@ defmodule WemosErgo.Accounts.Project do
   import Ecto.Changeset
 
   @enum_type_to_int %{circular_29: 0, working_environment: 1}
-  @enum_int_to_type Enum.into(@enum_type_to_int, %{}, fn {k, v} -> {v, k} end)
+  # @enum_int_to_type Enum.into(@enum_type_to_int, %{}, fn {k, v} -> {v, k} end)
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id

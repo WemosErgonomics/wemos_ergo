@@ -90,6 +90,9 @@ defmodule WemosErgoWeb do
       # Core UI components
       import WemosErgoWeb.CoreComponents
 
+      # helpers
+      import WemosErgo.Helpers.DateTime
+
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
 
