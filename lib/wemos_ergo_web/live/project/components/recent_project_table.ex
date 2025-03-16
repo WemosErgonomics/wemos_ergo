@@ -5,8 +5,8 @@ defmodule WemosErgoWeb.Components.RecentProjectTable do
   import WemosErgoWeb.Components.ProjectAction
 
   attr :projects, :list, required: true
-
   def recent_project_table(assigns) do
+    project_text = ["Thông tư 29", "Môi trường lao động"]
     ~H"""
     <div class="relative overflow-x-auto shadow-xl sm:rounded-xl mt-3 font-inter">
       <table class="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -42,7 +42,7 @@ defmodule WemosErgoWeb.Components.RecentProjectTable do
                 </div>
               </td>
               <td class="px-4 py-6 text-center">
-                {project.type}
+                {project_text |> Enum.at(project.type)}
               </td>
               <td class="px-4 py-6 text-center">
                 {project.inserted_at |> format_readable_datetime()}
